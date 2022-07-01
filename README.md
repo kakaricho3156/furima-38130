@@ -47,7 +47,7 @@
 ### Association
 
 - belongs_to :user
-- has_many :buying_items
+- has_one :buying_items
 - has_many :information, through: :buying_items
 
 
