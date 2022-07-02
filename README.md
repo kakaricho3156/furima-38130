@@ -23,7 +23,7 @@
 
 - has_many :items
 - has_many :buying_items
-- has_many :information
+- 
 
 ## items テーブル
 
@@ -34,7 +34,6 @@
 | item_detail       |  text   | null: false                   |
 | item_category_id  | integer | null: false                   |
 | item_condition_id | integer | null: false                   |
-| item_charge_id    | integer | null: false                   |
 | delivery_charge_id| integer | null: false                   |
 | shipping_area_id  | integer | null: false                   |
 | days_to_ship      | string  | null: false                   |
@@ -46,7 +45,6 @@
 
 - belongs_to :user
 - has_one :buying_items
-- has_many :information, through: :buying_items
 
 
 ## buying_items テーブル
@@ -58,7 +56,7 @@
 
 
 ### Association  buying_items テーブル
-- has_many :information
+- has_one :information
 - belongs_to:user
 - belongs_to:item
 
@@ -75,6 +73,6 @@
 
 ### Association information テーブル
 - 
-- belongs_to:user
+-
 - belongs_to:item
 - belongs_to:buying_item
