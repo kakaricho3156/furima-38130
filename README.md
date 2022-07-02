@@ -8,18 +8,18 @@
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
 | nickname           | string | null: false |
-| email              | string | null: false |
-| first_name         | string | null: false, unique: true|
+| email              | string | null: false, unique: true |
+| first_name         | string | null: false |
 | last_name          | string | null: false |
 | first_name_kana    | string | null: false |
 | last_name_kana     | string | null: false |
-| birthday           |  data  | null: false |
+| birthday           |  date  | null: false |
 | encrypted_password | string | null: false |
 
 
 
 
-### Association
+### Association  users テーブル
 
 - has_many :items
 - has_many :buying_items
@@ -30,20 +30,19 @@
 
 | Column            |  Type   | Options                       |
 | ------------------| ------  | -----------                   |
-| item_image        |  text   | null: false                   |
 | item_name         | string  | null: false                   |
 | item_detail       |  text   | null: false                   |
-| item_category     | string  | null: false                   |
-| item_condition    | string  | null: false                   |
-| item_charge       | string  | null: false                   |
-| delivery_charge   | string  | null: false                   |
-| shipping_area     | string  | null: false                   |
+| item_category_id  | integer | null: false                   |
+| item_condition_id | integer | null: false                   |
+| item_charge_id    | integer | null: false                   |
+| delivery_charge_id| integer | null: false                   |
+| shipping_area_id  | integer | null: false                   |
 | days_to_ship      | string  | null: false                   |
-| price             | string  | null: false                   |
-| user_id           |reference| null: false , foreign_key:true|
+| price             | integer | null: false                   |
+| user              |references| null: false , foreign_key:true|
 
 
-### Association
+### Association  items テーブル
 
 - belongs_to :user
 - has_one :buying_items
@@ -54,14 +53,16 @@
 
 | Column            |  Type   | Options                       |
 | ------------------| ------  | -----------                   |
-| item_id           |reference| null: false                   |
-| user_id           |reference| null: false , foreign_key:true|
+| item              |references| null: false                   |
+| user              |references| null: false , foreign_key:true|
 
 
-### Association
+### Association  buying_items テーブル
 - has_many :information
 - belongs_to:user
 - belongs_to:item
+
+## information テーブル
 
 | Column            |  Type   | Options                       |
 | ------------------| ------  | -----------                   |
@@ -72,8 +73,8 @@
 | building          |  string |                               |
 | telephone         |  string | null: false                   |
 
-### Association
+### Association information テーブル
 - 
 - belongs_to:user
 - belongs_to:item
-- belongs_to:buying_items
+- belongs_to:buying_item
