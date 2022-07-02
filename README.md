@@ -36,7 +36,7 @@
 | item_condition_id | integer | null: false                   |
 | delivery_charge_id| integer | null: false                   |
 | shipping_area_id  | integer | null: false                   |
-| days_to_ship      | string  | null: false                   |
+| days_to_ship_id   | string  | null: false                   |
 | price             | integer | null: false                   |
 | user              |references| null: false , foreign_key:true|
 
@@ -44,7 +44,7 @@
 ### Association  items テーブル
 
 - belongs_to :user
-- has_one :buying_items
+- has_one :buying_item
 
 
 ## buying_items テーブル
@@ -58,7 +58,6 @@
 ### Association  buying_items テーブル
 - has_one :information
 - belongs_to:user
-- belongs_to:item
 
 ## information テーブル
 
@@ -67,9 +66,9 @@
 | post_number       |  string | null: false                   |
 | shipping_area     | string  | null: false                   |
 | town              |  string | null: false                   |
-| address           |  string | null: false                   |
-| building          |  string |                               |
-| telephone         |  string | null: false                   |
+| address           | references | null: false, foreign_key: true |
+| building          | references | null: false, foreign_key: true |
+| telephone         | references | null: false, foreign_key: true |
 
 ### Association information テーブル
 - 
