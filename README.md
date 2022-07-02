@@ -56,6 +56,7 @@
 
 
 ### Association  buying_items テーブル
+- has_one :information
 - belongs_to:item
 - belongs_to:user
 
@@ -66,9 +67,11 @@
 | post_number       |  string | null: false                   |
 | shipping_area     | string  | null: false                   |
 | town              |  string | null: false                   |
-| address           | references | null: false, foreign_key: true |
-| building          | references | null: false, foreign_key: true |
-| telephone         | references | null: false, foreign_key: true |
+| address           | string | null: false                    |
+| building          | string | null: false                    |
+| telephone         | string | null: false                    |
+| buying_item       |references| null: false , foreign_key:true|
+
 
 ### Association information テーブル
 - 
