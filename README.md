@@ -2,20 +2,19 @@
 
 ## users テーブル
 
+
+
+
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| user_id            |integer | null: false |
 | nickname           | string | null: false |
 | email              | string | null: false |
-| first_name         | string | null: false |
+| first_name         | string | null: false, unique: true|
 | last_name          | string | null: false |
 | first_name_kana    | string | null: false |
 | last_name_kana     | string | null: false |
-| birthday_year      | string | null: false |
-| birthday_month     | string | null: false |
-| birthday_day       | string | null: false |
+| birthday           |  data  | null: false |
 | encrypted_password | string | null: false |
-|password_confirmation| string | null: false |
 
 
 
@@ -28,9 +27,9 @@
 
 ## items テーブル
 
+
 | Column            |  Type   | Options                       |
 | ------------------| ------  | -----------                   |
-| item_id           | integer | null: false                   |
 | item_image        |  text   | null: false                   |
 | item_name         | string  | null: false                   |
 | item_detail       |  text   | null: false                   |
@@ -66,12 +65,12 @@
 
 | Column            |  Type   | Options                       |
 | ------------------| ------  | -----------                   |
-| post_number       | integer | null: false                   |
-| prefectures       |  string | null: false                   |
+| post_number       |  string | null: false                   |
+| shipping_area     | string  | null: false                   |
 | town              |  string | null: false                   |
-| address           |  text   | null: false                   |
-| building          |  text   | null: false                   |
-| telephone         | integer | null: false                   |
+| address           |  string | null: false                   |
+| building          |  string |                               |
+| telephone         |  string | null: false                   |
 
 ### Association
 - 
