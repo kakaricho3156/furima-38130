@@ -11,7 +11,7 @@ before_action :set_item, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-   Item.create(item_params)
+   @item=Item.new(item_params)
    if @item.save
     redirect_to root_path
   else
