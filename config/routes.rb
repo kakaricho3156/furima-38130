@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   root to: "items#index"
   resources :items
 
-  resources :items do
-    resources :buying_item, only: [:index, :create]
-   end
+  # resources :items do
+  #   resources :buying_item, only: [:index, :create]
+  #  end
 end
 
