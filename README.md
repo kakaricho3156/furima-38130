@@ -32,10 +32,10 @@
 | ------------------| ------  | -----------                   |
 | item_name         | string  | null: false                   |
 | item_detail       |  text   | null: false                   |
-| item_category_id  | integer | null: false                   |
-| item_condition_id | integer | null: false                   |
+| category_id       | integer | null: false                   |
+| condition_id      | integer | null: false                   |
 | delivery_charge_id| integer | null: false                   |
-| shipping_area_id  | integer | null: false                   |
+| prefecture_id     | integer | null: false                   |
 | days_to_ship_id   | integer | null: false                   |
 | price             | integer | null: false                   |
 | user              |references| null: false , foreign_key:true|
@@ -65,7 +65,7 @@
 | Column            |  Type   | Options                       |
 | ------------------| ------  | -----------                   |
 | post_number       |  string | null: false                   |
-| shipping_area     | string  | null: false                   |
+| prefecture     | string  | null: false                   |
 | town              |  string | null: false                   |
 | address           | string | null: false                    |
 | building          | string | null: false                    |
