@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
   
     describe '商品情報登録' do
       context '商品情報登録がうまくいくとき' do
-        it "item_name,item_detail,item_category_id,item_condition_id,delivery_charge_id,shipping_area_id,days_to_ship_id,priceがあれば登録できる" do
+        it "item_name,item_detail,item_category_id,item_condition_id,delivery_charge_id,prefecture_id,days_to_ship_id,priceがあれば登録できる" do
           expect(@item).to be_valid
         end
         it "priceが300以上で登録できる" do
@@ -30,7 +30,7 @@ RSpec.describe Item, type: :model do
         end
 
         it "発送元地域が「---」以外であれば登録できる" do
-          @item.shipping_area_id=2
+          @item.prefecture_id=2
           expect(@item).to be_valid
         end
 
@@ -119,12 +119,12 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include("Delivery charge must be other than 1")
         end
         it "都道府県が空だと登録できない" do
-          @item.shipping_area_id=""
+          @item.prefecture_id=""
           @item.valid?
           expect(@item.errors.full_messages).to include("Shipping area can't be blank")
         end
         it "配送料が「---」だと登録できない" do
-          @item.shipping_area_id=1
+          @item.prefecture_id=1
           @item.valid?
           expect(@item.errors.full_messages).to include("Shipping area must be other than 1")
         end
