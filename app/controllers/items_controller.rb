@@ -24,6 +24,25 @@ def show
 
 end
 
+def edit
+  @item = Item.find(params[:id])
+  if @item.user_id == current_user.id && @item.buying_item.nil?
+    render 'edit'
+  else
+    redirect_to root_path
+  end
+end
+
+def update
+  @item = Item.find(params[:id])
+  @item.update(item_params)
+  if @item.valid?
+    redirect_to item_path(item_params)
+  else
+    render 'edit'
+  end
+end
+
   private
   def item_params
     params.require(:item).permit(:item_name,:item_detail,:category_id,:condition_id,:delivery_charge_id,:prefecture_id,:days_to_ship_id,:price,:image).merge(user_id: current_user.id)
