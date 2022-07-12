@@ -26,7 +26,6 @@ end
 def edit
   if @item.user_id == current_user.id
     #  && @item.buying_item.nil?
-    render 'edit'
   else
     redirect_to root_path
   end
