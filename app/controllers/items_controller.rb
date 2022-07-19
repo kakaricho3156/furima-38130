@@ -54,7 +54,7 @@ end
     @item = Item.find(params[:id])
   end
   def redirect_item
-    if current_user.id != @item.user_id
+    if current_user.id != @item.user_id || @item.buying_item.present?
 
   
       redirect_to root_path
