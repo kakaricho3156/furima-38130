@@ -11,7 +11,7 @@ class BuyingItemForm
     validates :prefecture, numericality: { other_than: 0, message: "can't be blank" }
     validates :town
     validates :address
-    validates :telephone, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
+    validates :telephone, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid' }
     validates :token
 
   end

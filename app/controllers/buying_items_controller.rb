@@ -6,7 +6,6 @@ class BuyingItemsController < ApplicationController
   end
   def create
     @buying_item_form=BuyingItemForm.new(buying_item_params)
-    # binding.pry
     if @buying_item_form.valid?
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       Payjp::Charge.create(

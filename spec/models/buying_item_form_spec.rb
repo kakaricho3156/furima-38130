@@ -70,9 +70,26 @@ RSpec.describe BuyingItemForm, type: :model do
         @buying_item_form.valid?
         expect(@buying_item_form.errors.full_messages).to include("Token can't be blank")
       end
+      it "電話番号が9桁以下では購入できない" do
+        @buying_item_form.telephone=22443
+        @buying_item_form.valid?
+        expect(@buying_item_form.errors.full_messages).to include("Telephone is invalid")
+      end
+      it "電話番号が12桁以上では購入できない" do
+        @buying_item_form.telephone=2244322222222222222222222222
+        @buying_item_form.valid?
+        expect(@buying_item_form.errors.full_messages).to include("Telephone is invalid")
+      end
+    
 
 
 
+
+      it "電話番号が半角数字以外が含まれていると購入できない" do
+        @buying_item_form.telephone="21111111111q"
+        @buying_item_form.valid?
+        expect(@buying_item_form.errors.full_messages).to include("Telephone is invalid")
+      end
 
 
 
@@ -82,3 +99,6 @@ RSpec.describe BuyingItemForm, type: :model do
   
   end 
 end
+
+
+
