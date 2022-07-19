@@ -18,6 +18,6 @@ class BuyingItemForm
 
   def save
     buying_item=BuyingItem.create(user_id: user_id, item_id: item_id)
-    Information.create(buying_item_id:buying_item.id,post_number: post_number,prefecture: prefecture,building: building)
+    Information.create(buying_item_id:buying_item.id,post_number: post_number,prefecture: prefecture,building: building,town:town,address:address,telephone:telephone)
   end
 end
