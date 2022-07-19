@@ -3,8 +3,8 @@ FactoryBot.define do
     association :user
     item_name {Faker::Name.name}
     item_detail {Faker::Lorem.sentence}
-    item_category_id {Faker::Number.between(from:2,to:10)}
-    item_condition_id {Faker::Number.between(from:2,to:6)}
+    category_id {Faker::Number.between(from:2,to:10)}
+    condition_id {Faker::Number.between(from:2,to:6)}
     delivery_charge_id {Faker::Number.between(from:2,to:2)}
     prefecture_id {Faker::Number.between(from:2,to:47)}
     days_to_ship_id {Faker::Number.between(from:2,to:3)}

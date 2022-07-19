@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
   
     describe '商品情報登録' do
       context '商品情報登録がうまくいくとき' do
-        it "item_name,item_detail,item_category_id,item_condition_id,delivery_charge_id,prefecture_id,days_to_ship_id,priceがあれば登録できる" do
+        it "item_name,item_detail,category_id,item_condition_id,delivery_charge_id,prefecture_id,days_to_ship_id,priceがあれば登録できる" do
           expect(@item).to be_valid
         end
         it "priceが300以上で登録できる" do
@@ -25,7 +25,7 @@ RSpec.describe Item, type: :model do
         end
 
         it "カテゴリーが「---」以外であれば登録できる" do
-          @item.item_category_id=2
+          @item.category_id=2
           expect(@item).to be_valid
         end
 
@@ -99,12 +99,12 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include("Item condition must be other than 1")
         end
         it "商品カテゴリーが空だと登録できない" do
-          @item.item_category_id=""
+          @item.category_id=""
           @item.valid?
           expect(@item.errors.full_messages).to include("Item category can't be blank")
         end
         it "商品カテゴリーが「---」だと登録できない" do
-          @item.item_category_id=1
+          @item.category_id=1
           @item.valid?
           expect(@item.errors.full_messages).to include("Item category must be other than 1")
         end

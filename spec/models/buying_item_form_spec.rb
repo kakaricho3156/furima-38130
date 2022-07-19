@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe BuyingItemForm, type: :model do
   before do
-    @buying_item_form = FactoryBot.build(:buying_item_form)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    @buying_item_form = FactoryBot.build(:buying_item_form,user_id:user.id,item_id:item.id)
+    sleep(1)
   end
 
   describe "配達先の保存" do
